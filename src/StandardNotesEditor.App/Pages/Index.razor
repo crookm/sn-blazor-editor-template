@@ -1,6 +1,7 @@
 ﻿@page "/"
-@implements IDisposable
-@inject IJSRuntime Js
+
+@inherits CancellableComponent;
+@inject INoteService _noteService;
 
 <h1>Hello, world!</h1>
 
@@ -22,26 +23,10 @@
     {
         if (firstRender)
         {
-            ContentManager.ContentChanged += ContentManagerOnContentChanged;
-            var res = await Js.InvokeAsync<string>("Editor.getEditorRawText");
-            ContentManager.SetRawContent(res);
+            _content = await _noteService.LoadAsync(CancellationToken);
+            StateHasChanged();
         }
     }
 
-    private void ContentManagerOnContentChanged(object? sender, EventArgs e)
-    {
-        _content = ContentManager.GetRawContent();
-        StateHasChanged();
-    }
-
-    public async Task SaveNoteContent()
-    {
-        Console.WriteLine("saving noteee");
-        await Js.InvokeVoidAsync("Editor.saveNote", _content);
-    }
-
-    public void Dispose()
-    {
-        ContentManager.ContentChanged -= ContentManagerOnContentChanged;
-    }
+    private async Task SaveNoteContent() => await _noteService.SaveAsync(_content, CancellationToken);
 }
