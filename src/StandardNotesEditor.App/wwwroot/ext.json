@@ -1,0 +1,8 @@
+{
+  "identifier": "io.mattcrook.sn-blazor-editor-template",
+  "name": "My Blazor Editor",
+  "content_type": "SN|Component",
+  "area": "editor-editor",
+  "version": "0.0.1",
+  "url": "http://localhost:5207"
+}

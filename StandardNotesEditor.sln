@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5B5180D4-AA4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{80A09F36-FAFF-4D5A-9E9F-21FD7C458CC4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StandardNotesEditor.App", "src\StandardNotesEditor.App\StandardNotesEditor.App.csproj", "{2BD3F7FC-74A0-4479-9536-26D638F4815B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,5 +22,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2BD3F7FC-74A0-4479-9536-26D638F4815B} = {5B5180D4-AA4D-4F93-8838-61568D0CB029}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2BD3F7FC-74A0-4479-9536-26D638F4815B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BD3F7FC-74A0-4479-9536-26D638F4815B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BD3F7FC-74A0-4479-9536-26D638F4815B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BD3F7FC-74A0-4479-9536-26D638F4815B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
