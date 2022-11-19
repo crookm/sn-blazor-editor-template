@@ -1,3 +1,47 @@
 ﻿@page "/"
+@implements IDisposable
+@inject IJSRuntime Js
 
 <h1>Hello, world!</h1>
+
+<textarea
+    id="textarea"
+    class="sk-input contrast textarea"
+    spellCheck="true"
+    rows="15"
+    @bind="_content"
+></textarea>
+
+<button @onclick="SaveNoteContent">save</button>
+
+@code
+{
+    private string _content = string.Empty;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            ContentManager.ContentChanged += ContentManagerOnContentChanged;
+            var res = await Js.InvokeAsync<string>("Editor.getEditorRawText");
+            ContentManager.SetRawContent(res);
+        }
+    }
+
+    private void ContentManagerOnContentChanged(object? sender, EventArgs e)
+    {
+        _content = ContentManager.GetRawContent();
+        StateHasChanged();
+    }
+
+    public async Task SaveNoteContent()
+    {
+        Console.WriteLine("saving noteee");
+        await Js.InvokeVoidAsync("Editor.saveNote", _content);
+    }
+
+    public void Dispose()
+    {
+        ContentManager.ContentChanged -= ContentManagerOnContentChanged;
+    }
+}
