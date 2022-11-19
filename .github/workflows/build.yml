@@ -1,0 +1,35 @@
+name: build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: setup .net
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+
+      - name: restore
+        run: dotnet restore
+
+      - name: build
+        run: dotnet build -c Release --no-restore
+
+      - name: publish
+        run: dotnet publish src/StandardNotesEditor.App/StandardNotesEditor.App.csproj -c Release --no-build -o out
+
+      - name: archive artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifacts
+          path: out/
+          if-no-files-found: error
