@@ -7,14 +7,14 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <JSLibRoot>jslib\</JSLibRoot>
+        <FrontendLibRoot>frontend\</FrontendLibRoot>
     </PropertyGroup>
 
     <ItemGroup>
         <!-- Do not publish the JS library root, but do display them in the project files -->
-        <Content Remove="$(JSLibRoot)**" />
-        <None Remove="$(JSLibRoot)**" />
-        <None Include="$(JSLibRoot)**" Exclude="$(JSLibRoot)node_modules\**" />
+        <Content Remove="$(FrontendLibRoot)**" />
+        <None Remove="$(FrontendLibRoot)**" />
+        <None Include="$(FrontendLibRoot)**" Exclude="$(FrontendLibRoot)node_modules\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -30,12 +30,12 @@
         <Error Condition="'$(YarnExitCode)' != '0'" Text="Yarn is required to build and run this project. Please install yarn from https://yarnpkg.com/, and then restart your command prompt or IDE." />
 
         <Message Importance="high" Text="Restoring JS dependencies with Yarn..." />
-        <Exec WorkingDirectory="$(JSLibRoot)" Command="yarn" />
+        <Exec WorkingDirectory="$(FrontendLibRoot)" Command="yarn" />
     </Target>
 
     <Target Name="YarnBuild" AfterTargets="YarnRestore">
         <Message Importance="high" Text="Building JS libraries with Yarn..." />
-        <Exec WorkingDirectory="$(JSLibRoot)" Command="yarn run build" />
+        <Exec WorkingDirectory="$(FrontendLibRoot)" Command="yarn run build" />
     </Target>
 
 </Project>

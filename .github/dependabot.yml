@@ -6,7 +6,7 @@ updates:
       interval: "weekly"
 
   - package-ecosystem: "npm"
-    directory: "src/StandardNotesEditor.App/jslib"
+    directory: "src/StandardNotesEditor.App/frontend"
     schedule:
       interval: "weekly"
 

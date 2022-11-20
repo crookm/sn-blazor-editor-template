@@ -1,3 +1,5 @@
+const EditorKit = require("@standardnotes/editor-kit");
+
 class EditorBridge {
     #editorKit;
     #editorKitDelegate = {
@@ -7,7 +9,7 @@ class EditorBridge {
     #rawContent = "";
 
     constructor(mode) {
-        this.#editorKit = new vendor.EditorKit(
+        this.#editorKit = new EditorKit(
             this.#editorKitDelegate, {
                 mode, supportsFileSafe: false
             });
