@@ -479,4 +479,4 @@ $RECYCLE.BIN/
 .idea
 
 # Do not commit built vendor output
-src/StandardNotesEditor.App/wwwroot/js/vendor.min.js*
+src/StandardNotesEditor.App/wwwroot/bundle*
