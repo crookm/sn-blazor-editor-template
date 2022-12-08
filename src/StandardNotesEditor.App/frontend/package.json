@@ -10,7 +10,7 @@
     "@standardnotes/editor-kit": "^2.2.5",
     "babel-loader": "^9.0.0",
     "css-loader": "^6.7.2",
-    "mini-css-extract-plugin": "^2.7.0",
+    "mini-css-extract-plugin": "^2.7.2",
     "optimize-css-assets-webpack-plugin": "^6.0.1",
     "sass": "^1.56.1",
     "sass-loader": "^13.2.0",
