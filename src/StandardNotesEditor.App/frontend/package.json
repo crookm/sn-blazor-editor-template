@@ -6,7 +6,7 @@
     "build": "webpack --mode production"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.3",
+    "@babel/core": "^7.21.5",
     "@standardnotes/editor-kit": "^2.2.5",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
