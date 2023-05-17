@@ -16,6 +16,6 @@
     "sass-loader": "^13.2.2",
     "sn-stylekit": "^5.2.21",
     "webpack": "^5.82.1",
-    "webpack-cli": "^5.1.0"
+    "webpack-cli": "^5.1.1"
   }
 }
