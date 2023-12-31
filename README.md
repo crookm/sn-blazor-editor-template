@@ -1,19 +1,23 @@
 # Standard Notes Blazor Editor Template
 
-This template repository contains the framework for building a [Standard Notes](https://standardnotes.com) editor using [Blazor WebAssembly](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor), a .NET web application framework.
+This template repository contains the framework for building a [Standard Notes](https://standardnotes.com) editor
+using [Blazor WebAssembly](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor), a .NET web application framework.
 
 ## Getting started
 
 ### Requirements
 
-* .NET 7 SDK
-* Node v18+ (LTS)
+* .NET 8 SDK
+* Node v20+ (LTS)
 
-To get started with this repo, fork or click the 'use template' button at the top of the [Github page](https://github.com/crookm/sn-blazor-editor-template) to create a copy for you to modify.
+To get started with this repo, fork or click the 'use template' button at the top of the [Github page](https://github.com/crookm/sn-blazor-editor-template) to create a copy for you
+to modify.
 
 Modify the extension definition in the file `src/StandardNotesEditor.App/wwwroot/ext.json` to suit your project (identifier, name, and version will likely need to be adjusted).
 
-Build and run the `StandardNotesEditor.App` project, and browse to `http://localhost:5207` to see a limited preview outside of the Standard Notes app. To view within the app, browse to `settings > general > advanced options > install external plugin` (at the bottom of the list). Input the address `http://localhost:5207/ext.json` into the input box and click install. When editing a note, selecting an editor should display your new extension in the list.
+Build and run the `StandardNotesEditor.App` project, and browse to `http://localhost:5207` to see a limited preview outside of the Standard Notes app. To view within the app,
+browse to `settings > plugins > install custom plugin` (at the bottom of the list). Input the address `http://localhost:5207/ext.json` into the input box and click install. When
+editing a note, selecting an editor should display your new extension in the list.
 
 Depending on how your editor is storing data, you may wish to change `plaintext` to `html` or `json` on L36 of `src/StandardNotesEditor.App/frontend/src/index.js`.
 
