@@ -22,20 +22,20 @@
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.5" PrivateAssets="all" />
     </ItemGroup>
 
-    <Target Name="YarnRestore" BeforeTargets="Build">
-        <Exec Command="yarn --version" ContinueOnError="true">
-            <Output TaskParameter="ExitCode" PropertyName="YarnExitCode" />
+    <Target Name="NpmRestore" BeforeTargets="Build">
+        <Exec Command="npm --version" ContinueOnError="true">
+            <Output TaskParameter="ExitCode" PropertyName="NpmExitCode" />
         </Exec>
 
-        <Error Condition="'$(YarnExitCode)' != '0'" Text="Yarn is required to build and run this project. Please install yarn from https://yarnpkg.com/, and then restart your command prompt or IDE." />
+        <Error Condition="'$(NpmExitCode)' != '0'" Text="NPM is required to build and run this project." />
 
-        <Message Importance="high" Text="Restoring JS dependencies with Yarn..." />
-        <Exec WorkingDirectory="$(FrontendLibRoot)" Command="yarn" />
+        <Message Importance="high" Text="Restoring JS dependencies with NPM..." />
+        <Exec WorkingDirectory="$(FrontendLibRoot)" Command="npm install" />
     </Target>
 
-    <Target Name="YarnBuild" AfterTargets="YarnRestore">
-        <Message Importance="high" Text="Building JS libraries with Yarn..." />
-        <Exec WorkingDirectory="$(FrontendLibRoot)" Command="yarn run build" />
+    <Target Name="NpmBuild" AfterTargets="NpmRestore">
+        <Message Importance="high" Text="Building JS libraries with NPM..." />
+        <Exec WorkingDirectory="$(FrontendLibRoot)" Command="npm run build" />
     </Target>
 
 </Project>
