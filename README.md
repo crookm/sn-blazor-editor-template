@@ -1,3 +1,7 @@
+> **NOTE**: This project no longer works, as Standard Notes containerised the frame in which editor extensions are loaded (as of ~August 2023). This prevents Blazor WASM from using the cache, which it does so explicitly during boot with no way of turning it off (that I am aware of).
+> 
+> If these limitations change at any point (either by SN or by Blazor), I will update this project to work again. 
+
 # Standard Notes Blazor Editor Template
 
 This template repository contains the framework for building a [Standard Notes](https://standardnotes.com) editor
